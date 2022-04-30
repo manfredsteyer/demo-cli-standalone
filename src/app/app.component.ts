@@ -6,12 +6,9 @@ import { map, shareReplay } from 'rxjs';
 import { Component, Inject } from '@angular/core';
 
 import { NavbarComponent, SidebarComponent } from './shell';
+import material from './material';
+
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -21,12 +18,8 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     CommonModule,
 
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-
+    ...material,
+    
     NavbarComponent,
     SidebarComponent,
 
