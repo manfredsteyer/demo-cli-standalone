@@ -9,7 +9,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducer } from './app/+state';
 import { AppComponent } from './app/app.component';
 import { APP_ROUTES } from './app/app.routes';
-import { InitService } from './app/init.service';
 import { TicketsModule } from './app/tickets/tickets.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -29,10 +28,12 @@ bootstrapApplication(AppComponent, {
     ...importProvidersFrom(TicketsModule),
     ...importProvidersFrom(BrowserAnimationsModule),
     ...importProvidersFrom(LayoutModule),
-    {
-      provide: INJECTOR_INITIALIZER,
-      multi: true,
-      useValue: () => inject(InitService).init()
-    }
   ]
 });
+
+
+// {
+//   provide: INJECTOR_INITIALIZER,
+//   multi: true,
+//   useValue: () => inject(InitService).init()
+// }
