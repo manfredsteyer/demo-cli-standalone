@@ -10,6 +10,8 @@ import { selectFlights } from "../+state/selectors";
 import { Observable, take } from "rxjs";
 import { loadFlights } from "../+state/actions";
 import { delayFlight } from "../+state/actions";
+import { TicketService } from "../../tickets/ticket.service";
+import { TicketsModule } from "../../tickets/tickets.module";
 
 @Component({
   standalone: true,
@@ -18,6 +20,9 @@ import { delayFlight } from "../+state/actions";
     FormsModule, 
     FlightCardComponent,
     CityValidator,
+
+    TicketsModule
+
   ],
   selector: 'flight-search',
   templateUrl: './flight-search.component.html'
@@ -35,7 +40,13 @@ export class FlightSearchComponent implements OnInit {
     5: true
   };
 
-  constructor(@Inject(Store) private store: Store<BookingSlice>) {
+  constructor(
+    private ticketService: TicketService,
+    @Inject(Store) private store: Store<BookingSlice>) {
+  
+      const r = ticketService.getTicketCount();
+      console.log('ticketCount', r);  
+  
   }
 
   ngOnInit(): void {

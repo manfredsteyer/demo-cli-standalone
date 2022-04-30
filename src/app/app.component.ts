@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
+import { TicketService } from './tickets/ticket.service';
 
 @Component({
   standalone: true,
@@ -46,7 +47,12 @@ export class AppComponent {
       shareReplay()
     );
 
-  constructor(@Inject(BreakpointObserver) private breakpointObserver: BreakpointObserver) {
+  constructor(
+    ticketService: TicketService,
+    @Inject(BreakpointObserver) private breakpointObserver: BreakpointObserver) {
+  
+      const r = ticketService.getTicketCount();
+      console.log('ticketCount', r);
   }
 
 }
