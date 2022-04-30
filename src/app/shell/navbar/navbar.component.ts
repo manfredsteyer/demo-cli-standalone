@@ -1,23 +1,28 @@
-import { Component } from "@angular/core";
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { CommonModule } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { map, shareReplay } from 'rxjs';
 
 @Component({
     standalone: true,
     selector: 'app-navbar-cmp',
-    templateUrl: './navbar.component.html'
+    templateUrl: './navbar.component.html',
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatIconModule
+    ]
 })
 export class NavbarComponent {
-    
-    sidebarVisible: boolean = false;
+    isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset)
+        .pipe(
+            map(result => result.matches),
+            shareReplay()
+        );
 
-    sidebarToggle(){
-        var body = document.getElementsByTagName('body')[0];
-
-        if(this.sidebarVisible == false){
-            body.classList.add('nav-open');
-            this.sidebarVisible = true;
-        } else {
-            this.sidebarVisible = false;
-            body.classList.remove('nav-open');
-        }
+    constructor(
+        @Inject(BreakpointObserver) private breakpointObserver: BreakpointObserver) {
     }
 }

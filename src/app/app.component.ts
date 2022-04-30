@@ -1,25 +1,35 @@
 import { HomeComponent } from './home/home.component';
 
 // Options for importing esm modules
-import { TicketsModule } from './tickets/tickets.module';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints, LayoutModule } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs';
 import { Component, Inject } from '@angular/core';
 
-import shell from '@demo/shell';
-import material from './material';
+import { NavbarComponent, SidebarComponent } from './shell';
 import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'app-root',
   imports: [
-    CommonModule,
     RouterModule,
+    CommonModule,
 
-    ...shell,
-    ...material,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+
+    NavbarComponent,
+    SidebarComponent,
+
     HomeComponent,
   ],
   templateUrl: './app.component.html',
@@ -33,7 +43,8 @@ export class AppComponent {
       shareReplay()
     );
 
-  constructor(@Inject(BreakpointObserver) private breakpointObserver: BreakpointObserver) {
+  constructor(
+    @Inject(BreakpointObserver) private breakpointObserver: BreakpointObserver) {
   }
 
 }

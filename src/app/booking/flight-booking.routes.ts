@@ -1,9 +1,7 @@
-import { importProvidersFrom, inject, INJECTOR_INITIALIZER } from "@angular/core";
+import { importProvidersFrom } from "@angular/core";
 import { Routes } from "@angular/router";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
-import { FlightService } from "../data/flight.service";
-import { InitService } from "../init.service";
 import { BookingEffects } from "./+state/effects";
 import { bookingFeature } from "./+state/reducers";
 import { FlightBookingComponent } from "./flight-booking.component";
@@ -18,13 +16,13 @@ export const FLIGHT_BOOKING_ROUTES: Routes = [{
         // FlightService
         ...importProvidersFrom(StoreModule.forFeature(bookingFeature)),
         ...importProvidersFrom(EffectsModule.forFeature([BookingEffects])),
-        {
-            provide: INJECTOR_INITIALIZER,
-            multi: true,
-            useValue: () => inject(InitService).init()
-        }
     ],
     children: [
+        {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'flight-search'
+        },
         {
             path: 'flight-search',
             component: FlightSearchComponent
@@ -40,3 +38,13 @@ export const FLIGHT_BOOKING_ROUTES: Routes = [{
     ]
 }];
 
+
+
+
+
+
+// {
+//     provide: INJECTOR_INITIALIZER,
+//     multi: true,
+//     useValue: () => inject(InitService).init()
+// }

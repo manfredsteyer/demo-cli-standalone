@@ -1,37 +1,20 @@
-<div class="sidebar-wrapper">
-  <div class="logo">
-    <a href="http://angulararchitects.io" class="simple-text logo-mini">
-      <div class="logo-image-small">
-        <img src="assets/paper-design/angular2-logo.png">
-      </div>
-    </a>
-    <a href="http://angulararchitects.io" class="simple-text logo-normal">
-      Flights 42
-    </a>
-  </div>
-  <ul class="nav">
-    <li class="active">
-      <a routerLink="/">
-        <p>Home</p>
-      </a>
-    </li>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">Home</a>
+      <a mat-list-item routerLink="/flight-booking/flight-search">Flights</a>
+      <a mat-list-item routerLink="/my-tickets">My Tickets</a>
+      <a mat-list-item routerLink="/next-flight">Next Flight</a>
+      <a mat-list-item routerLink="/about">About</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
 
-    <li>
-      <a routerLink="/flight-booking/flight-search">
-        <p>Flights</p>
-      </a>
-    </li>
+    <ng-content></ng-content>
 
-    <li>
-      <a routerLink="/my-tickets">
-        <p>My Tickets</p>
-      </a>
-    </li>
-
-    <li>
-      <a routerLink="/about">
-        <p>About</p>
-      </a>
-    </li>
-  </ul>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
