@@ -1,8 +1,6 @@
-import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 
 // Options for importing esm modules
-import { TicketsModule } from './tickets/tickets.module';
 import { BreakpointObserver, Breakpoints, LayoutModule } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs';
 import { Component, Inject } from '@angular/core';
@@ -15,7 +13,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
-import { TicketService } from './tickets/ticket.service';
 
 @Component({
   standalone: true,
@@ -47,11 +44,7 @@ export class AppComponent {
     );
 
   constructor(
-    ticketService: TicketService,
     @Inject(BreakpointObserver) private breakpointObserver: BreakpointObserver) {
-  
-      const r = ticketService.getTicketCount();
-      console.log('ticketCount', r);
   }
 
 }

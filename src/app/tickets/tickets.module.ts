@@ -19,6 +19,11 @@ import { TicketService } from './ticket.service';
   declarations: [
     MyTicketsComponent
   ],
+  providers: [
+    // For demo purposes
+    // Please consider using providedIn: 'root' instead
+    TicketService
+  ],
   exports: [
     MyTicketsComponent
   ]
