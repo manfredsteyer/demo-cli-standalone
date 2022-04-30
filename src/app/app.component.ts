@@ -5,7 +5,7 @@ import { BreakpointObserver, Breakpoints, LayoutModule } from '@angular/cdk/layo
 import { map, shareReplay } from 'rxjs';
 import { Component, Inject } from '@angular/core';
 
-import { NavbarComponent, SidebarComponent } from './shell';
+import shell from '@demo/shell';
 import material from './material';
 
 import { RouterModule } from '@angular/router';
@@ -15,13 +15,11 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   selector: 'app-root',
   imports: [
+    ...material,
+    ...shell,    
+
     RouterModule,
     CommonModule,
-
-    ...material,
-    
-    NavbarComponent,
-    SidebarComponent,
 
     HomeComponent,
   ],
