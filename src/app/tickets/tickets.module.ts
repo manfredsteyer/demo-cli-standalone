@@ -18,5 +18,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     MyTicketsComponent
   ],
+  exports: [
+    MyTicketsComponent
+  ]
 })
 export class TicketsModule { }

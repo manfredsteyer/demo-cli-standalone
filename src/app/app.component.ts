@@ -1,5 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
-import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 
 // Options for importing esm modules
@@ -22,7 +20,6 @@ import { CommonModule } from '@angular/common';
 
     ...shell,
     ...material,
-    TicketsModule,
     HomeComponent,
   ],
   templateUrl: './app.component.html',
