@@ -11,18 +11,19 @@ import { Component, Inject } from '@angular/core';
 import shell from '@demo/shell';
 import material from './material';
 import { RouterModule } from '@angular/router';
-import { FlightSearchComponent } from './booking/flight-search/flight-search.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'app-root',
   imports: [
+    CommonModule,
+    RouterModule,
+
     ...shell,
     ...material,
     TicketsModule,
     HomeComponent,
-    HttpClientModule,
-    RouterModule
   ],
   templateUrl: './app.component.html'
 })

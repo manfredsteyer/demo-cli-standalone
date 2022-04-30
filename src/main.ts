@@ -1,3 +1,4 @@
+import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { enableProdMode, importProvidersFrom, inject, INJECTOR_INITIALIZER } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
@@ -10,6 +11,7 @@ import { AppComponent } from './app/app.component';
 import { APP_ROUTES } from './app/app.routes';
 import { InitService } from './app/init.service';
 import { TicketsModule } from './app/tickets/tickets.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from './environments/environment';
 
@@ -25,6 +27,8 @@ bootstrapApplication(AppComponent, {
     ...importProvidersFrom(StoreDevtoolsModule.instrument()),
     ...importProvidersFrom(HttpClientModule),
     ...importProvidersFrom(TicketsModule),
+    ...importProvidersFrom(BrowserAnimationsModule),
+    ...importProvidersFrom(LayoutModule),
     {
       provide: INJECTOR_INITIALIZER,
       multi: true,
