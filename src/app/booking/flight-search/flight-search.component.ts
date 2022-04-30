@@ -38,7 +38,6 @@ export class FlightSearchComponent implements OnInit {
   constructor(@Inject(Store) private store: Store<BookingSlice>) {
   }
 
-
   ngOnInit(): void {
   }
 
