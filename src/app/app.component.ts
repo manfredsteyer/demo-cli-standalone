@@ -25,7 +25,8 @@ import { CommonModule } from '@angular/common';
     TicketsModule,
     HomeComponent,
   ],
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
