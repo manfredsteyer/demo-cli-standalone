@@ -20,6 +20,8 @@ import { TicketService } from './ticket.service';
     MyTicketsComponent
   ],
   providers: [
+    // For Demonstration purposes
+    // Please consider providedIn: 'root' instead!
     TicketService
   ],
   exports: [

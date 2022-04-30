@@ -1,26 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { Flight } from '@demo/data';
+import { Component, Input, OnInit } from '@angular/core';
+import { Flight } from '../data/flight';
+import { TicketService } from './ticket.service';
 
 @Component({
   selector: 'app-my-tickets',
   template: `
-    <h2>My Tickets</h2>
+    <h2>{{title}}</h2>
 
     <ng-container *ngFor="let ticket of tickets">
-        <flight-card [item]="ticket"></flight-card>
+        <flight-card [item]="ticket" [showEditButton]="false"></flight-card>
     </ng-container>
   `
 })
 export class MyTicketsComponent implements OnInit {
 
-  tickets: Flight[] = [
-    { id: 4711, from: 'Graz', to: 'Düsseldorf', delayed: false, date: new Date().toISOString()},
-    { id: 4712, from: 'Graz', to: 'Paderborn', delayed: false, date: new Date().toISOString()}
-  ];
+  @Input() title = 'My Tickets';
+  @Input() limit = -1;
 
-  constructor() { }
+  tickets: Flight[] = [];
+
+  constructor(private ticketService: TicketService) { }
 
   ngOnInit(): void {
+    this.tickets = this.ticketService.get(this.limit);
   }
 
 }
