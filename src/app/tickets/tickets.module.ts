@@ -19,9 +19,6 @@ import { TicketService } from './ticket.service';
   declarations: [
     MyTicketsComponent
   ],
-  providers: [
-    TicketService
-  ],
   exports: [
     MyTicketsComponent
   ]
