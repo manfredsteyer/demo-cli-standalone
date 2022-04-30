@@ -33,7 +33,6 @@ import { TicketService } from './tickets/ticket.service';
     NavbarComponent,
     SidebarComponent,
 
-    TicketsModule,
     HomeComponent,
   ],
   templateUrl: './app.component.html',

@@ -7,7 +7,7 @@ import { Flight } from '@demo/data';
     <h2>My Tickets</h2>
 
     <ng-container *ngFor="let ticket of tickets">
-        <flight-card [item]="ticket"></flight-card>
+        <flight-card [item]="ticket" [showEditButton]="false"></flight-card>
     </ng-container>
   `
 })
