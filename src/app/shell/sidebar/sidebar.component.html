@@ -9,26 +9,22 @@
       Flights 42
     </a>
   </div>
+
   <ul class="nav">
-    <li class="active">
-      <a routerLink="/">
+
+    <li routerLinkActive="active">
+      <a routerLink="home">
         <p>Home</p>
       </a>
     </li>
 
-    <li>
-      <a routerLink="/flight-booking/flight-search">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}"> 
+      <a routerLink="/flight-booking">
         <p>Flights</p>
       </a>
     </li>
 
-    <li>
-      <a routerLink="/my-tickets">
-        <p>My Tickets</p>
-      </a>
-    </li>
-
-    <li>
+    <li routerLinkActive="active">
       <a routerLink="/about">
         <p>About</p>
       </a>

@@ -11,12 +11,4 @@ import { TicketService } from "../../tickets/ticket.service";
   ]
 })
 export class PassengerSearchComponent {
-  
-  constructor(
-    private ticketService: TicketService) {
-  
-      const r = ticketService.getTicketCount();
-      console.log('ticketCount', r);  
-  
-  }
 }
