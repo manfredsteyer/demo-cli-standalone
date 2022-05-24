@@ -35,3 +35,4 @@ export class SidebarComponent {
         @Inject(BreakpointObserver) private breakpointObserver: BreakpointObserver) {
     }
 }
+
