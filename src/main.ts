@@ -14,9 +14,9 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    ...importProvidersFrom(RouterModule.forRoot(APP_ROUTES)),
-    ...importProvidersFrom(HttpClientModule),
-    ...importProvidersFrom(TicketsModule),
+    importProvidersFrom(RouterModule.forRoot(APP_ROUTES)),
+    importProvidersFrom(HttpClientModule),
+    importProvidersFrom(TicketsModule),
   ]
 });
 
