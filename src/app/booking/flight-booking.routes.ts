@@ -1,4 +1,4 @@
-import { importProvidersFrom, inject, INJECTOR_INITIALIZER } from "@angular/core";
+import { importProvidersFrom, inject, PLATFORM_INITIALIZER } from "@angular/core";
 import { Routes } from "@angular/router";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
@@ -16,10 +16,10 @@ export const FLIGHT_BOOKING_ROUTES: Routes = [{
     component: FlightBookingComponent,
     providers: [
         // FlightService
-        ...importProvidersFrom(StoreModule.forFeature(bookingFeature)),
-        ...importProvidersFrom(EffectsModule.forFeature([BookingEffects])),
+        importProvidersFrom(StoreModule.forFeature(bookingFeature)),
+        importProvidersFrom(EffectsModule.forFeature([BookingEffects])),
         {
-            provide: INJECTOR_INITIALIZER,
+            provide: PLATFORM_INITIALIZER,
             multi: true,
             useValue: () => inject(InitService).init()
         }

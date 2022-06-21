@@ -1,6 +1,6 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
-import { enableProdMode, importProvidersFrom, inject, INJECTOR_INITIALIZER } from '@angular/core';
+import { enableProdMode, importProvidersFrom, PLATFORM_INITIALIZER } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -21,14 +21,14 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    ...importProvidersFrom(RouterModule.forRoot(APP_ROUTES)),
-    ...importProvidersFrom(StoreModule.forRoot(reducer)),
-    ...importProvidersFrom(EffectsModule.forRoot()),
-    ...importProvidersFrom(StoreDevtoolsModule.instrument()),
-    ...importProvidersFrom(HttpClientModule),
-    ...importProvidersFrom(TicketsModule),
-    ...importProvidersFrom(BrowserAnimationsModule),
-    ...importProvidersFrom(LayoutModule),
+    importProvidersFrom(RouterModule.forRoot(APP_ROUTES)),
+    importProvidersFrom(StoreModule.forRoot(reducer)),
+    importProvidersFrom(EffectsModule.forRoot()),
+    importProvidersFrom(StoreDevtoolsModule.instrument()),
+    importProvidersFrom(HttpClientModule),
+    importProvidersFrom(TicketsModule),
+    importProvidersFrom(BrowserAnimationsModule),
+    importProvidersFrom(LayoutModule),
   ]
 });
 
