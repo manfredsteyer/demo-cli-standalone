@@ -1,6 +1,5 @@
 import { HomeComponent } from './home/home.component';
 
-// Options for importing esm modules
 import { BreakpointObserver, Breakpoints, LayoutModule } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs';
 import { Component, Inject } from '@angular/core';
