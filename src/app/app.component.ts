@@ -28,8 +28,6 @@ import { CommonModule } from '@angular/common';
 
     NavbarComponent,
     SidebarComponent,
-
-    HomeComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

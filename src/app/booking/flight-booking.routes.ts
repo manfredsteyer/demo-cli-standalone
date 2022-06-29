@@ -18,11 +18,6 @@ export const FLIGHT_BOOKING_ROUTES: Routes = [{
         // FlightService
         importProvidersFrom(StoreModule.forFeature(bookingFeature)),
         importProvidersFrom(EffectsModule.forFeature([BookingEffects])),
-        {
-            provide: PLATFORM_INITIALIZER,
-            multi: true,
-            useValue: () => inject(InitService).init()
-        }
     ],
     children: [
         {
